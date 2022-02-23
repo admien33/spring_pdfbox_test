@@ -102,6 +102,17 @@ public class FileUploadController {
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@PostMapping("/pdf-validation-a-2b")
+	public ResponseEntity<Object> handleFileUploadPdfValidationPdfa(@RequestParam("file") MultipartFile file) {
+
+		try {
+			Boolean result = pdfBox.validationPdfA2b(file.getInputStream());
+			return ResponseEntity.ok(Collections.singletonMap("status", result));
+		} catch (IOException e) {
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+		}
+	}
 
 //	@RequestMapping(value = "/pdf-page-to-image-bis", method = RequestMethod.POST, produces = "image/png")
 //	public @ResponseBody byte[] handleFileUploadPdfPageToImage(@RequestParam("file") MultipartFile file,

@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.verapdf.pdfa.VeraGreenfieldFoundryProvider;
 
 import com.example.uploadingfiles.storage.StorageProperties;
 import com.example.uploadingfiles.storage.StorageService;
@@ -14,6 +15,7 @@ import com.example.uploadingfiles.storage.StorageService;
 public class UploadingFilesApplication {
 
 	public static void main(String[] args) {
+		VeraGreenfieldFoundryProvider.initialise();
 		SpringApplication.run(UploadingFilesApplication.class, args);
 	}
 
